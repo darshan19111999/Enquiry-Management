@@ -23,6 +23,30 @@
       "description": "Avatar for Admin User",
       "imageUrl": "https://picsum.photos/seed/104/40/40",
       "imageHint": "professional person"
+    },
+    {
+      "id": "user-avatar-5",
+      "description": "Avatar for Saniya Parange",
+      "imageUrl": "https://picsum.photos/seed/105/40/40",
+      "imageHint": "professional woman"
+    },
+    {
+      "id": "user-avatar-6",
+      "description": "Avatar for Asmita Pawar",
+      "imageUrl": "https://picsum.photos/seed/106/40/40",
+      "imageHint": "smiling woman"
+    },
+    {
+      "id": "user-avatar-7",
+      "description": "Avatar for Komal Badekar",
+      "imageUrl": "https://picsum.photos/seed/107/40/40",
+      "imageHint": "woman portrait"
+    },
+    {
+      "id": "user-avatar-8",
+      "description": "Avatar for Kalyani Palande",
+      "imageUrl": "https://picsum.photos/seed/108/40/40",
+      "imageHint": "person smiling"
     }
   ]
 }
