@@ -1,4 +1,4 @@
-import { User, Enquiry } from './types';
+import { User, Enquiry, Source } from './types';
 import { PlaceHolderImages } from './placeholder-images';
 
 const userImages = {
@@ -121,6 +121,18 @@ export const enquiries: Enquiry[] = [
     ],
   },
 ];
+
+export const sources: Source[] = [
+    { id: 1, title: 'Website', status: 'Publish', regDate: '18 Apr 2025, 11:07 AM' },
+    { id: 6, title: 'Leaflet', status: 'Publish', regDate: '19 Apr 2025, 07:36 PM' },
+    { id: 7, title: 'ChatBot', status: 'Publish', regDate: '24 Apr 2025, 11:30 AM' },
+    { id: 8, title: 'Landing Page', status: 'Publish', regDate: '03 May 2025, 05:45 PM' },
+    { id: 4, title: 'News Paper', status: 'Publish', regDate: '05 May 2025, 09:34 PM' },
+    { id: 9, title: 'Other', status: 'Publish-S', regDate: '07 May 2025, 05:57 PM' },
+    { id: 10, title: 'Exhibition', status: 'Publish', regDate: '07 May 2025, 05:58 PM' },
+    { id: 11, title: 'Toll Free', status: 'Publish', regDate: '08 Jul 2025, 02:54 PM' },
+];
+
 
 export const pastSuccessfulCases = `
 Case 1: Enterprise Sales Enquiry

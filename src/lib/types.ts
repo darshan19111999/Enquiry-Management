@@ -46,3 +46,10 @@ export type Enquiry = {
   followUps: FollowUp[];
   activityLog: Activity[];
 };
+
+export type Source = {
+    id: number;
+    title: string;
+    status: string;
+    regDate: string;
+};
