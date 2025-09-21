@@ -67,6 +67,9 @@ export default function ManageSourcePage() {
   const [newSourceTitle, setNewSourceTitle] = useState('');
   const [newSourceStatus, setNewSourceStatus] = useState('Publish');
 
+  const [editSource, setEditSource] = useState<Source | null>(null);
+  const [editOpen, setEditOpen] = useState(false);
+
 
   const handleAddSource = () => {
     if (newSourceTitle.trim() === '') return;
@@ -79,6 +82,18 @@ export default function ManageSourcePage() {
     setSources([...sources, newSource]);
     setNewSourceTitle('');
     setOpen(false);
+  };
+  
+  const handleEditClick = (source: Source) => {
+    setEditSource(source);
+    setEditOpen(true);
+  };
+  
+  const handleUpdateSource = () => {
+    if (!editSource || editSource.title.trim() === '') return;
+    setSources(sources.map(s => s.id === editSource.id ? editSource : s));
+    setEditOpen(false);
+    setEditSource(null);
   };
 
 
@@ -194,7 +209,7 @@ export default function ManageSourcePage() {
                   <TableRow key={source.id}>
                     <TableCell>{index + 1}</TableCell>
                     <TableCell>
-                      <Button variant="outline" size="icon" className="h-8 w-8">
+                      <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => handleEditClick(source)}>
                         <Edit className="h-4 w-4" />
                       </Button>
                     </TableCell>
@@ -231,6 +246,57 @@ export default function ManageSourcePage() {
           </div>
         </CardContent>
       </Card>
+      {editSource && (
+        <Dialog open={editOpen} onOpenChange={setEditOpen}>
+          <DialogContent className="sm:max-w-[425px]">
+            <DialogHeader>
+              <DialogTitle>Edit Source</DialogTitle>
+              <DialogDescription>
+                Make changes to the source here. Click save when you're done.
+              </DialogDescription>
+            </DialogHeader>
+            <div className="grid gap-4 py-4">
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="edit-title" className="text-right">
+                  Source Title
+                </Label>
+                <Input
+                  id="edit-title"
+                  value={editSource.title}
+                  onChange={(e) =>
+                    setEditSource({ ...editSource, title: e.target.value })
+                  }
+                  className="col-span-3"
+                />
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="edit-status" className="text-right">
+                  Status
+                </Label>
+                <Select
+                  value={editSource.status}
+                  onValueChange={(value) =>
+                    setEditSource({ ...editSource, status: value })
+                  }
+                >
+                  <SelectTrigger className="col-span-3">
+                    <SelectValue placeholder="Select status" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="Publish">Publish</SelectItem>
+                    <SelectItem value="Unpublish">Unpublish</SelectItem>
+                    <SelectItem value="Publish-S">Publish-S</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+            <DialogFooter>
+              <Button variant="outline" onClick={() => setEditOpen(false)}>Cancel</Button>
+              <Button type="submit" onClick={handleUpdateSource}>Save changes</Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+      )}
     </div>
   );
 }
