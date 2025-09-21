@@ -1,4 +1,4 @@
-import { User, Enquiry, Source, Priority, EnquiryStatusType, EnquiryTypeType } from './types';
+import { User, Enquiry, Source, Priority, EnquiryStatusType, EnquiryTypeType, Package } from './types';
 import { PlaceHolderImages } from './placeholder-images';
 
 const userImages = {
@@ -160,6 +160,19 @@ export const enquiryTypes: EnquiryTypeType[] = [
     { id: 4, title: 'Marriage Event', status: 'Publish', regDate: '18 Apr 2025, 06:24 PM' },
     { id: 3, title: 'Corporate Event', status: 'Publish', regDate: '18 Apr 2025, 06:23 PM' },
     { id: 2, title: 'Stay', status: 'Publish', regDate: '18 Apr 2025, 06:23 PM' },
+];
+
+export const packages: Package[] = [
+    { id: 1, title: 'Village Adventure (Adult)', rate: 1694.9, tax: 305, hsnCode: 996331, regDate: '18 Sep 2025, 03:11 PM', status: 'Publish' },
+    { id: 2, title: 'Village Adventure (Kid)', rate: 1440, tax: 259, hsnCode: 996331, regDate: '11 Jun 2025, 08:11 PM', status: 'Publish' },
+    { id: 3, title: 'ONS - Driver (Food Charges)', rate: 1271, tax: 228, hsnCode: 996331, regDate: '27 May 2025, 07:23 PM', status: 'Publish' },
+    { id: 4, title: 'ODP - Driver (Food Charges)', rate: 762, tax: 137, hsnCode: 996331, regDate: '27 May 2025, 07:23 PM', status: 'Publish' },
+    { id: 5, title: 'Village Combo Pack', rate: 211, tax: 38, hsnCode: 996331, regDate: '27 May 2025, 07:22 PM', status: 'Publish' },
+    { id: 6, title: 'Adventure Combo Pack', rate: 339, tax: 61, hsnCode: 996331, regDate: '27 May 2025, 07:22 PM', status: 'Publish' },
+    { id: 7, title: 'PA System', rate: 5500, tax: 990, hsnCode: 996331, regDate: '27 May 2025, 07:22 PM', status: 'Publish' },
+    { id: 8, title: 'Agni Cafeteria', rate: 15000, tax: 2700, hsnCode: 996331, regDate: '27 May 2025, 07:21 PM', status: 'Publish' },
+    { id: 9, title: 'Auditorium (Half Day)', rate: 21000, tax: 3780, hsnCode: 996331, regDate: '27 May 2025, 07:21 PM', status: 'Publish' },
+    { id: 10, title: 'Auditorium (Full Day)', rate: 31000, tax: 5580, hsnCode: 996331, regDate: '27 May 2025, 07:21 PM', status: 'Publish' },
 ];
 
 

@@ -75,3 +75,13 @@ export type EnquiryTypeType = {
     status: string;
     regDate: string;
 };
+
+export type Package = {
+  id: number;
+  title: string;
+  rate: number;
+  tax: number;
+  hsnCode: number;
+  regDate: string;
+  status: string;
+};
