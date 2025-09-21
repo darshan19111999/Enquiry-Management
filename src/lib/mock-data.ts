@@ -1,4 +1,4 @@
-import { User, Enquiry, Source, Priority } from './types';
+import { User, Enquiry, Source, Priority, EnquiryStatusType } from './types';
 import { PlaceHolderImages } from './placeholder-images';
 
 const userImages = {
@@ -137,6 +137,18 @@ export const priorities: Priority[] = [
     { id: 1, title: 'Low', status: 'Publish', regDate: '05 May 2025, 10:44 PM' },
     { id: 2, title: 'Medium', status: 'Publish', regDate: '19 Apr 2025, 11:06 PM' },
     { id: 3, title: 'High', status: 'Publish', regDate: '18 Apr 2025, 11:47 AM' },
+];
+
+export const enquiryStatuses: EnquiryStatusType[] = [
+    { id: 2, title: 'Confirmed', status: 'Draft', regDate: '21 Sep 2025, 12:05 PM', sequence: 3 },
+    { id: 9, title: 'Sold Out', status: 'Publish', regDate: '26 Jul 2025, 11:55 AM', sequence: 9 },
+    { id: 6, title: 'Stay Booked', status: 'Publish', regDate: '19 Jul 2025, 03:31 PM', sequence: 6 },
+    { id: 8, title: 'Day Booked', status: 'Publish', regDate: '19 Jul 2025, 03:31 PM', sequence: 8 },
+    { id: 7, title: 'Day Estimate', status: 'Publish', regDate: '12 Jun 2025, 10:58 PM', sequence: 7 },
+    { id: 5, title: 'Stay Estimate', status: 'Publish', regDate: '09 Jun 2025, 10:00 AM', sequence: 5 },
+    { id: 4, title: 'Canceled', status: 'Publish', regDate: '16 May 2025, 06:06 PM', sequence: 4 },
+    { id: 1, title: 'In Process', status: 'Publish', regDate: '16 May 2025, 06:04 PM', sequence: 2 },
+    { id: 3, title: 'Fresh', status: 'Publish', regDate: '18 Apr 2025, 12:19 PM', sequence: 1 },
 ];
 
 

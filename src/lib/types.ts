@@ -24,7 +24,7 @@ export type FollowUp = {
   assignedTo: User;
 };
 
-export type EnquiryStatus = 'New' | 'In Progress' | 'Closed-Won' | 'Closed-Lost';
+export type EnquiryStatus = 'New' | 'In Progress' | 'Closed-Won' | 'Closed-Lost' | string;
 export type EnquirySource = 'Website' | 'Referral' | 'Advertisement' | 'Other' | string;
 export type EnquiryType = 'Sales' | 'Support' | 'General Inquiry';
 export type EnquiryPriority = 'Low' | 'Medium' | 'High' | string;
@@ -59,4 +59,12 @@ export type Priority = {
     title: string;
     status: string;
     regDate: string;
+};
+
+export type EnquiryStatusType = {
+    id: number;
+    title: string;
+    status: string;
+    regDate: string;
+    sequence: number;
 };

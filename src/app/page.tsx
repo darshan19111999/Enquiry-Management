@@ -19,7 +19,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { EnquiryList } from '@/components/enquiries/enquiry-list';
-import { enquiries, users, sources, priorities } from '@/lib/mock-data';
+import { enquiries, users, sources, priorities, enquiryStatuses } from '@/lib/mock-data';
 import {
   Select,
   SelectContent,
@@ -80,10 +80,11 @@ export default function DashboardPage() {
                   <SelectValue placeholder="By Status" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="New">New</SelectItem>
-                  <SelectItem value="In Progress">In Progress</SelectItem>
-                  <SelectItem value="Closed-Won">Closed-Won</SelectItem>
-                  <SelectItem value="Closed-Lost">Closed-Lost</SelectItem>
+                  {enquiryStatuses.map((status) => (
+                    <SelectItem key={status.id} value={status.title}>
+                      {status.title}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </div>
