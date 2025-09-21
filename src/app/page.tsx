@@ -19,7 +19,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { EnquiryList } from '@/components/enquiries/enquiry-list';
-import { enquiries, users, sources } from '@/lib/mock-data';
+import { enquiries, users, sources, priorities } from '@/lib/mock-data';
 import {
   Select,
   SelectContent,
@@ -146,9 +146,11 @@ export default function DashboardPage() {
                   <SelectValue placeholder="By Priority" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="Low">Low</SelectItem>
-                  <SelectItem value="Medium">Medium</SelectItem>
-                  <SelectItem value="High">High</SelectItem>
+                  {priorities.map((priority) => (
+                    <SelectItem key={priority.id} value={priority.title}>
+                      {priority.title}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </div>

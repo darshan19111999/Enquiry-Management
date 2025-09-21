@@ -1,4 +1,4 @@
-import { User, Enquiry, Source } from './types';
+import { User, Enquiry, Source, Priority } from './types';
 import { PlaceHolderImages } from './placeholder-images';
 
 const userImages = {
@@ -131,6 +131,12 @@ export const sources: Source[] = [
     { id: 9, title: 'Other', status: 'Publish-S', regDate: '07 May 2025, 05:57 PM' },
     { id: 10, title: 'Exhibition', status: 'Publish', regDate: '07 May 2025, 05:58 PM' },
     { id: 11, title: 'Toll Free', status: 'Publish', regDate: '08 Jul 2025, 02:54 PM' },
+];
+
+export const priorities: Priority[] = [
+    { id: 1, title: 'Low', status: 'Publish', regDate: '05 May 2025, 10:44 PM' },
+    { id: 2, title: 'Medium', status: 'Publish', regDate: '19 Apr 2025, 11:06 PM' },
+    { id: 3, title: 'High', status: 'Publish', regDate: '18 Apr 2025, 11:47 AM' },
 ];
 
 
