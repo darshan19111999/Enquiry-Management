@@ -19,7 +19,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { EnquiryList } from '@/components/enquiries/enquiry-list';
-import { enquiries, users } from '@/lib/mock-data';
+import { enquiries, users, sources } from '@/lib/mock-data';
 import {
   Select,
   SelectContent,
@@ -133,10 +133,9 @@ export default function DashboardPage() {
                   <SelectValue placeholder="By Source" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="Website">Website</SelectItem>
-                  <SelectItem value="Referral">Referral</SelectItem>
-                  <SelectItem value="Advertisement">Advertisement</SelectItem>
-                  <SelectItem value="Other">Other</SelectItem>
+                  {sources.map(source => (
+                    <SelectItem key={source.id} value={source.title}>{source.title}</SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </div>
