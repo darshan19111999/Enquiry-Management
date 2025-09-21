@@ -9,6 +9,20 @@ import {
   LayoutDashboard,
   Settings,
   UploadCloud,
+  MapPin,
+  Gem,
+  CheckSquare,
+  List,
+  Users,
+  PlusCircle,
+  XCircle,
+  BookCheck,
+  Package,
+  FileText,
+  History,
+  CalendarCheck,
+  CalendarClock,
+  LogOut,
 } from 'lucide-react';
 
 import {
@@ -22,6 +36,7 @@ import {
   SidebarFooter,
   SidebarInset,
   SidebarTrigger,
+  SidebarMenuBadge,
 } from '@/components/ui/sidebar';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
@@ -66,12 +81,108 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
             <SidebarMenuItem>
               <SidebarMenuButton
                 asChild
-                isActive={pathname === '/reports'}
-                tooltip="Reports"
+                isActive={pathname === '/manage-source'}
+                tooltip="Manage Source"
               >
-                <Link href="/reports">
-                  <BarChart3 />
-                  <span>Reports</span>
+                <Link href="#">
+                  <MapPin />
+                  <span>Manage Source</span>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton
+                asChild
+                isActive={pathname === '/manage-priority'}
+                tooltip="Manage Priority"
+              >
+                <Link href="#">
+                  <Gem />
+                  <span>Manage Priority</span>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton
+                asChild
+                isActive={pathname === '/manage-enq-status'}
+                tooltip="Manage Enq Status"
+              >
+                <Link href="#">
+                  <CheckSquare />
+                  <span>Manage Enq Status</span>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton
+                asChild
+                isActive={pathname === '/manage-enq-type'}
+                tooltip="Manage Enq Type"
+              >
+                <Link href="#">
+                  <List />
+                  <span>Manage Enq Type</span>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton
+                asChild
+                isActive={pathname === '/manage-users'}
+                tooltip="Manage Users"
+              >
+                <Link href="#">
+                  <Users />
+                  <span>Manage Users</span>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton
+                asChild
+                isActive={pathname === '/'}
+                tooltip="Manage Enquiry"
+              >
+                <Link href="/">
+                  <List />
+                  <span>Manage Enquiry</span>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton
+                asChild
+                isActive={pathname === '/enquiries/new'}
+                tooltip="Add Enquiry"
+              >
+                <Link href="/enquiries/new">
+                  <PlusCircle />
+                  <span>Add Enquiry</span>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton
+                asChild
+                isActive={pathname === '/canceled-enquiry'}
+                tooltip="Canceled Enquiry"
+              >
+                <Link href="#">
+                  <XCircle />
+                  <span>Canceled Enquiry</span>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton
+                asChild
+                isActive={pathname === '/booked-enquiry'}
+                tooltip="Booked Enquiry"
+              >
+                <Link href="#">
+                  <BookCheck />
+                  <span>Booked Enquiry</span>
                 </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
@@ -79,11 +190,74 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
               <SidebarMenuButton
                 asChild
                 isActive={pathname === '/upload'}
-                tooltip="Bulk Upload"
+                tooltip="Upload Enquiries"
               >
                 <Link href="/upload">
                   <UploadCloud />
-                  <span>Bulk Upload</span>
+                  <span>Upload Enquiries</span>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton
+                asChild
+                isActive={pathname === '/manage-packages'}
+                tooltip="Manage Packages"
+              >
+                <Link href="#">
+                  <Package />
+                  <span>Manage Packages</span>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton
+                asChild
+                isActive={pathname === '/manage-terms'}
+                tooltip="Manage Terms & Conditions"
+              >
+                <Link href="#">
+                  <FileText />
+                  <span>Manage Terms & Conditions</span>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton
+                asChild
+                isActive={pathname === '/previous-followup'}
+                tooltip="Previous Followup"
+              >
+                <Link href="#">
+                  <History />
+                  <span>Previous Followup</span>
+                  <SidebarMenuBadge>315</SidebarMenuBadge>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton
+                asChild
+                isActive={pathname === '/todays-followup'}
+                tooltip="Todays Followup"
+              >
+                <Link href="#">
+                  <CalendarCheck />
+                  <span>Todays Followup</span>
+                  <SidebarMenuBadge>32</SidebarMenuBadge>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton
+                asChild
+                isActive={pathname === '/future-followup'}
+                tooltip="Future Followup"
+              >
+                <Link href="#">
+                  <CalendarClock />
+                  <span>Future Followup</span>
+                  <SidebarMenuBadge>118</SidebarMenuBadge>
                 </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
@@ -93,12 +267,12 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
           <Separator className="my-2 bg-sidebar-border" />
           <SidebarMenu>
             <SidebarMenuItem>
-                <SidebarMenuButton asChild tooltip="Settings">
-                    <Link href="#">
-                        <Settings />
-                        <span>Settings</span>
-                    </Link>
-                </SidebarMenuButton>
+              <SidebarMenuButton asChild tooltip="Logout">
+                <Link href="#">
+                  <LogOut />
+                  <span>Logout</span>
+                </Link>
+              </SidebarMenuButton>
             </SidebarMenuItem>
           </SidebarMenu>
 
@@ -120,10 +294,8 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
       </Sidebar>
       <SidebarInset>
         <header className="flex h-14 items-center gap-4 border-b bg-background px-4 lg:h-[60px] lg:px-6">
-            <SidebarTrigger className="md:hidden" />
-            <div className='flex-1'>
-                {/* Header content can go here if needed */}
-            </div>
+          <SidebarTrigger className="md:hidden" />
+          <div className="flex-1">{/* Header content can go here if needed */}</div>
         </header>
         <main className="flex-1 p-4 lg:p-6">{children}</main>
       </SidebarInset>
