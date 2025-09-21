@@ -84,7 +84,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                 isActive={pathname === '/manage-source'}
                 tooltip="Manage Source"
               >
-                <Link href="#">
+                <Link href="/manage-source">
                   <MapPin />
                   <span>Manage Source</span>
                 </Link>
@@ -96,7 +96,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                 isActive={pathname === '/manage-priority'}
                 tooltip="Manage Priority"
               >
-                <Link href="#">
+                <Link href="/manage-priority">
                   <Gem />
                   <span>Manage Priority</span>
                 </Link>
@@ -108,7 +108,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                 isActive={pathname === '/manage-enq-status'}
                 tooltip="Manage Enq Status"
               >
-                <Link href="#">
+                <Link href="/manage-enq-status">
                   <CheckSquare />
                   <span>Manage Enq Status</span>
                 </Link>
@@ -120,7 +120,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                 isActive={pathname === '/manage-enq-type'}
                 tooltip="Manage Enq Type"
               >
-                <Link href="#">
+                <Link href="/manage-enq-type">
                   <List />
                   <span>Manage Enq Type</span>
                 </Link>
@@ -132,7 +132,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                 isActive={pathname === '/manage-users'}
                 tooltip="Manage Users"
               >
-                <Link href="#">
+                <Link href="/manage-users">
                   <Users />
                   <span>Manage Users</span>
                 </Link>
@@ -168,7 +168,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                 isActive={pathname === '/canceled-enquiry'}
                 tooltip="Canceled Enquiry"
               >
-                <Link href="#">
+                <Link href="/canceled-enquiry">
                   <XCircle />
                   <span>Canceled Enquiry</span>
                 </Link>
@@ -180,7 +180,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                 isActive={pathname === '/booked-enquiry'}
                 tooltip="Booked Enquiry"
               >
-                <Link href="#">
+                <Link href="/booked-enquiry">
                   <BookCheck />
                   <span>Booked Enquiry</span>
                 </Link>
@@ -204,7 +204,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                 isActive={pathname === '/manage-packages'}
                 tooltip="Manage Packages"
               >
-                <Link href="#">
+                <Link href="/manage-packages">
                   <Package />
                   <span>Manage Packages</span>
                 </Link>
@@ -216,7 +216,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                 isActive={pathname === '/manage-terms'}
                 tooltip="Manage Terms & Conditions"
               >
-                <Link href="#">
+                <Link href="/manage-terms">
                   <FileText />
                   <span>Manage Terms & Conditions</span>
                 </Link>
@@ -228,7 +228,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                 isActive={pathname === '/previous-followup'}
                 tooltip="Previous Followup"
               >
-                <Link href="#">
+                <Link href="/previous-followup">
                   <History />
                   <span>Previous Followup</span>
                   <SidebarMenuBadge>315</SidebarMenuBadge>
@@ -241,7 +241,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                 isActive={pathname === '/todays-followup'}
                 tooltip="Todays Followup"
               >
-                <Link href="#">
+                <Link href="/todays-followup">
                   <CalendarCheck />
                   <span>Todays Followup</span>
                   <SidebarMenuBadge>32</SidebarMenuBadge>
@@ -254,10 +254,22 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                 isActive={pathname === '/future-followup'}
                 tooltip="Future Followup"
               >
-                <Link href="#">
+                <Link href="/future-followup">
                   <CalendarClock />
                   <span>Future Followup</span>
                   <SidebarMenuBadge>118</SidebarMenuBadge>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+             <SidebarMenuItem>
+              <SidebarMenuButton
+                asChild
+                isActive={pathname.startsWith('/reports')}
+                tooltip="Reports"
+              >
+                <Link href="/reports">
+                  <BarChart3 />
+                  <span>Reports</span>
                 </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
