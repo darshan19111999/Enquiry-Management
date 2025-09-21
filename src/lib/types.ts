@@ -27,6 +27,7 @@ export type FollowUp = {
 export type EnquiryStatus = 'New' | 'In Progress' | 'Closed-Won' | 'Closed-Lost';
 export type EnquirySource = 'Website' | 'Referral' | 'Advertisement' | 'Other';
 export type EnquiryType = 'Sales' | 'Support' | 'General Inquiry';
+export type EnquiryPriority = 'Low' | 'Medium' | 'High';
 
 export type Enquiry = {
   id: string;
@@ -38,6 +39,7 @@ export type Enquiry = {
   type: EnquiryType;
   details: string;
   status: EnquiryStatus;
+  priority?: EnquiryPriority;
   createdAt: Date;
   updatedAt: Date;
   assignedTo: User;
