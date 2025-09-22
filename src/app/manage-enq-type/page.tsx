@@ -1,50 +1,19 @@
-
 'use client';
 
 import React, { useState } from 'react';
-import {
-  PlusCircle,
-  Search as SearchIcon,
-  Edit
-} from 'lucide-react';
+import { PlusCircle, Search as SearchIcon, Edit } from 'lucide-react';
 
 import { enquiryTypes as initialEnquiryTypes } from '@/lib/mock-data';
 import { type EnquiryTypeType } from '@/lib/types';
 import { Button } from '@/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
-import {
-  Pagination,
-  PaginationContent,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from '@/components/ui/pagination';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '@/components/ui/pagination';
 import { Badge } from '@/components/ui/badge';
-import {
-  Dialog,
-  DialogContent,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog, DialogTrigger, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-
 
 export default function ManageEnquiryTypePage() {
   const [enquiryTypes, setEnquiryTypes] = useState<EnquiryTypeType[]>(initialEnquiryTypes);
@@ -53,7 +22,6 @@ export default function ManageEnquiryTypePage() {
 
   const [editEnquiryType, setEditEnquiryType] = useState<EnquiryTypeType | null>(null);
   const [editOpen, setEditOpen] = useState(false);
-
 
   const handleAddEnquiryType = () => {
     if (newEnquiryType.title.trim() === '') return;
@@ -67,12 +35,12 @@ export default function ManageEnquiryTypePage() {
     setNewEnquiryType({ title: '', status: 'Publish' });
     setOpen(false);
   };
-  
+
   const handleEditClick = (type: EnquiryTypeType) => {
     setEditEnquiryType(type);
     setEditOpen(true);
   };
-  
+
   const handleUpdateEnquiryType = () => {
     if (!editEnquiryType || editEnquiryType.title.trim() === '') return;
     setEnquiryTypes(enquiryTypes.map(s => s.id === editEnquiryType.id ? editEnquiryType : s));
@@ -80,32 +48,33 @@ export default function ManageEnquiryTypePage() {
     setEditEnquiryType(null);
   };
 
-
   return (
     <div className="flex flex-col gap-8">
-       <div>
-          <h1 className="text-2xl font-semibold">Manage Enquiry Type</h1>
-          <p className="text-sm text-muted-foreground">Home / Manage Enquiry Type</p>
-        </div>
+      <div>
+        <h1 className="text-2xl font-semibold">Manage Enquiry Type</h1>
+        <p className="text-sm text-muted-foreground">Home / Manage Enquiry Type</p>
+      </div>
+
       <Card>
         <CardHeader>
           <CardTitle>Enquiry Type List</CardTitle>
         </CardHeader>
         <CardContent>
+          {/* Filters & Actions */}
           <div className="flex items-center justify-between gap-4 flex-wrap mb-4">
             <div className="flex items-center gap-2">
-                <Input placeholder="Enquiry Type" className="max-w-sm" />
-                 <Select>
-                    <SelectTrigger className="w-[180px]">
-                        <SelectValue placeholder="By Status" />
-                    </SelectTrigger>
-                    <SelectContent>
-                        <SelectItem value="Publish">Publish</SelectItem>
-                        <SelectItem value="Draft">Draft</SelectItem>
-                    </SelectContent>
-                </Select>
-                <Button>Search</Button>
-                <Button variant="secondary">Show All</Button>
+              <Input placeholder="Enquiry Type" className="max-w-sm" />
+              <Select>
+                <SelectTrigger className="w-[180px]">
+                  <SelectValue placeholder="By Status" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="Publish">Publish</SelectItem>
+                  <SelectItem value="Draft">Draft</SelectItem>
+                </SelectContent>
+              </Select>
+              <Button>Search</Button>
+              <Button variant="secondary">Show All</Button>
             </div>
             <div className="flex items-center gap-2">
               <Select defaultValue="10">
@@ -126,15 +95,14 @@ export default function ManageEnquiryTypePage() {
               <Button variant="outline">Print</Button>
             </div>
           </div>
+
+          {/* Search & Add */}
           <div className="flex items-center justify-between mb-4">
             <div className="relative flex-1 md:grow-0">
-                <SearchIcon className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-                <Input
-                  type="search"
-                  placeholder="Search..."
-                  className="w-full rounded-lg bg-background pl-8 md:w-[200px] lg:w-[320px]"
-                />
+              <SearchIcon className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+              <Input type="search" placeholder="Search..." className="w-full rounded-lg bg-background pl-8 md:w-[200px] lg:w-[320px]" />
             </div>
+
             <Dialog open={open} onOpenChange={setOpen}>
               <DialogTrigger asChild>
                 <Button onClick={() => setOpen(true)}>
@@ -147,23 +115,19 @@ export default function ManageEnquiryTypePage() {
                 </DialogHeader>
                 <div className="grid gap-4 py-4">
                   <div className="grid grid-cols-4 items-center gap-4">
-                    <Label htmlFor="title" className="text-right">
-                      Title
-                    </Label>
-                    <Input id="title" value={newEnquiryType.title} onChange={(e) => setNewEnquiryType({...newEnquiryType, title: e.target.value})} className="col-span-3" />
+                    <Label htmlFor="title" className="text-right">Title</Label>
+                    <Input id="title" value={newEnquiryType.title} onChange={(e) => setNewEnquiryType({ ...newEnquiryType, title: e.target.value })} className="col-span-3" />
                   </div>
                   <div className="grid grid-cols-4 items-center gap-4">
-                    <Label htmlFor="status" className="text-right">
-                      Status
-                    </Label>
-                     <Select value={newEnquiryType.status} onValueChange={(value) => setNewEnquiryType({...newEnquiryType, status: value})}>
-                        <SelectTrigger className="col-span-3">
-                            <SelectValue placeholder="Select status" />
-                        </SelectTrigger>
-                        <SelectContent>
-                            <SelectItem value="Publish">Publish</SelectItem>
-                            <SelectItem value="Draft">Draft</SelectItem>
-                        </SelectContent>
+                    <Label htmlFor="status" className="text-right">Status</Label>
+                    <Select value={newEnquiryType.status} onValueChange={(value) => setNewEnquiryType({ ...newEnquiryType, status: value })}>
+                      <SelectTrigger className="col-span-3">
+                        <SelectValue placeholder="Select status" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Publish">Publish</SelectItem>
+                        <SelectItem value="Draft">Draft</SelectItem>
+                      </SelectContent>
                     </Select>
                   </div>
                 </div>
@@ -173,6 +137,8 @@ export default function ManageEnquiryTypePage() {
               </DialogContent>
             </Dialog>
           </div>
+
+          {/* Table */}
           <div className="rounded-md border">
             <Table>
               <TableHeader>
@@ -197,7 +163,7 @@ export default function ManageEnquiryTypePage() {
                     <TableCell>{type.id}</TableCell>
                     <TableCell>{type.title}</TableCell>
                     <TableCell>
-                        <Badge variant={type.status === 'Publish' ? 'default' : 'destructive'} className={type.status === 'Publish' ? 'bg-green-500' : 'bg-red-500'}>{type.status}</Badge>
+                      <Badge variant={type.status === 'Publish' ? 'default' : 'destructive'} className={type.status === 'Publish' ? 'bg-green-500' : 'bg-red-500'}>{type.status}</Badge>
                     </TableCell>
                     <TableCell>{type.regDate}</TableCell>
                   </TableRow>
@@ -205,6 +171,8 @@ export default function ManageEnquiryTypePage() {
               </TableBody>
             </Table>
           </div>
+
+          {/* Pagination */}
           <div className="flex items-center justify-between mt-4">
             <div className="text-sm text-muted-foreground">
               Showing 1 to {enquiryTypes.length} of {enquiryTypes.length} entries
@@ -215,9 +183,7 @@ export default function ManageEnquiryTypePage() {
                   <PaginationPrevious href="#" />
                 </PaginationItem>
                 <PaginationItem>
-                  <PaginationLink href="#" isActive>
-                    1
-                  </PaginationLink>
+                  <PaginationLink href="#" isActive>1</PaginationLink>
                 </PaginationItem>
                 <PaginationItem>
                   <PaginationNext href="#" />
@@ -227,6 +193,8 @@ export default function ManageEnquiryTypePage() {
           </div>
         </CardContent>
       </Card>
+
+      {/* Edit Dialog */}
       {editEnquiryType && (
         <Dialog open={editOpen} onOpenChange={setEditOpen}>
           <DialogContent className="sm:max-w-[425px]">
@@ -235,28 +203,12 @@ export default function ManageEnquiryTypePage() {
             </DialogHeader>
             <div className="grid gap-4 py-4">
               <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="edit-title" className="text-right">
-                  Title
-                </Label>
-                <Input
-                  id="edit-title"
-                  value={editEnquiryType.title}
-                  onChange={(e) =>
-                    setEditEnquiryType({ ...editEnquiryType, title: e.target.value })
-                  }
-                  className="col-span-3"
-                />
+                <Label htmlFor="edit-title" className="text-right">Title</Label>
+                <Input id="edit-title" value={editEnquiryType.title} onChange={(e) => setEditEnquiryType({ ...editEnquiryType, title: e.target.value })} className="col-span-3" />
               </div>
               <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="edit-status" className="text-right">
-                  Status
-                </Label>
-                <Select
-                  value={editEnquiryType.status}
-                  onValueChange={(value) =>
-                    setEditEnquiryType({ ...editEnquiryType, status: value })
-                  }
-                >
+                <Label htmlFor="edit-status" className="text-right">Status</Label>
+                <Select value={editEnquiryType.status} onValueChange={(value) => setEditEnquiryType({ ...editEnquiryType, status: value })}>
                   <SelectTrigger className="col-span-3">
                     <SelectValue placeholder="Select status" />
                   </SelectTrigger>
