@@ -7,7 +7,7 @@ export default function ManageUsersPage() {
         <h1 className="text-3xl font-bold tracking-tight">Manage Users</h1>
         <p className="text-muted-foreground">
           Add, edit, or remove users from your team.
-        p>
+        </p>
       </div>
       <Card>
         <CardHeader>
